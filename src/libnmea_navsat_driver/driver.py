@@ -162,7 +162,8 @@ class Ros2NMEADriver(Node):
                 fix_type = -1
             gps_qual = self.gps_qualities[fix_type]
             default_epe = gps_qual[0]
-            current_fix.status.status = gps_qual[1]
+            # current_fix.status.status = gps_qual[1]
+            current_fix.status.status = fix_type
             current_fix.position_covariance_type = gps_qual[2]
             if current_fix.status.status > 0:
                 self.valid_fix = True
